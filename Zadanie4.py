@@ -7,16 +7,18 @@ dane = input("Podaj słowa aby sprawdzić czy to palindromy: ")
 
 slowa = dane.split()
 
-with open("palindromy.txt", "w") as file:
-    for slowo in slowa:
-        if palindrom(slowo):
-            print(f"{slowo} to palindrom!")
-        else:
-            print(f"{slowo} to nie palindrom.")
+for slowo in slowa:
+    if palindrom(slowo):
+        print(f"{slowo} to palindrom!")
+    else:
+        print(f"{slowo} to nie palindrom.")
 
 with open("palindromy.txt", "w") as file:
     for slowo in slowa:
         if palindrom(slowo):
             file.write(f"{slowo} to palindrom, ")
-        else:
+
+with open("niepalindromy.txt", "w") as file:
+    for slowo in slowa:
+        if not palindrom(slowo):
             file.write(f"{slowo} to nie palindrom, ")
